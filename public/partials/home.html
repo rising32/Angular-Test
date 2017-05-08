@@ -1,0 +1,29 @@
+<div class="home">
+    <div class="slider">
+        <carousel interval="myInterval">
+            <slide ng-repeat="slide in slides" active="slide.active">
+                <img ng-src="{{slide.image}}">
+                <div class="carousel-caption">
+                    <h4>Slide {{$index+1}}</h4>
+                </div>
+            </slide>
+        </carousel>
+    </div>
+    <div class="row detail-view">
+        <div class="col-xs-6">
+            <div class="news-container">
+                <h1>Latest News</h1>
+                <div>
+                    <div ng-repeat="item in news" class="item">
+                        <p ng-click="changeCurrentView(item.img);">{{item.title}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="img-container">
+                <img src="{{currentNews}}">
+            </div>    
+        </div>
+    </div>
+</div>
