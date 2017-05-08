@@ -12,18 +12,28 @@
     <div class="row detail-view">
         <div class="col-xs-6">
             <div class="news-container">
-                <h1>Latest News</h1>
+                <div class="title-container">
+                    <h1 class="pull-left">Latest News</h1>
+                    <select ng-model="sortFactor" class="pull-right">
+                        <option value="date">by Date</option>
+                        <option value="title">by Title</option>
+                    </select>
+                </div>
                 <div>
-                    <div ng-repeat="item in news" class="item">
-                        <p ng-click="changeCurrentView(item.img);">{{item.title}}</p>
+                    <div ng-repeat="item in news | orderBy: sortFactor" class="item {{currentNews==$index && visibleDescription ?'selected':''}}">
+                        <p ng-click="changeCurrentView($index);">{{item.title}}<span class="pull-right">{{showDate(item.date)}}</span></p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-xs-6">
             <div class="img-container">
-                <img src="{{currentNews}}">
+                <img src="{{news[currentNews].img}}">
             </div>    
         </div>
+    </div>
+
+    <div class="row description-view text-center" ng-if="visibleDescription">
+        {{news[currentNews].description}}
     </div>
 </div>

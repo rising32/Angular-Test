@@ -17,11 +17,35 @@ p {
 	min-height: 50px;
 }
 
-.header ul {
+.menu > ul {
 	line-height: 50px;
 }
-.header ul li {
+.menu > ul > li {
 	margin-right: 20px;
+	position: relative;
+}
+.menu > ul > li:hover .dropdown-content {
+	display: block;
+}
+.dropdown-content {
+	position: absolute;
+	width:100%;
+	top: 100%;
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	padding: 12px 16px;
+	z-index: 1;
+}
+.dropdown-content ul {
+	list-style-type: none;
+	padding: 0;
+	display: block;
+}
+.dropdown-content ul li {
+	line-height: 30px;
+	cursor: pointer;
 }
 .slider img {
 	width: 100%;
@@ -33,6 +57,9 @@ p {
 .news-container .item {
 	border-bottom: 1px solid #cccccc;
 	cursor: pointer;
+}
+.news-container .item.selected {
+	background: antiquewhite;
 }
 .news-container, .img-container {
 	height: 400px;
@@ -50,6 +77,14 @@ p {
 }
 #container {
 	margin-bottom: 50px;
+}
+.title-container {
+	min-height: 70px;
+}
+.description-view {
+	margin-top: 30px;
+	padding: 20px;
+	box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
 }
 .footer {
 	box-shadow: 0 2px 4px -1px rgba(0,0,0,.2),0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12);
